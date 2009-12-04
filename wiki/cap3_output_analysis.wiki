@@ -13,7 +13,7 @@ example project: http://cgpdb.ucdavis.edu/SNP_Discovery_CDS/
 *GENERATION OF CONTIG COMPLEXITY INFO:*
 
 {{{
-bash-2.03$ python Python_CAP3_ContigExtractor_Uni_2007_03_19.py
+python Python_CAP3_ContigExtractor_Uni_2007_03_19.py
 What type of output do you want? (1/2): 1
 Enter the SOURCE file name: output.cap3.80.90
 Enter the DESTINATION file name: output.cap3.80.90.Info
@@ -24,7 +24,7 @@ Enter the contig file name prefix:My_Assy_
 *EXTRACTION OF CAP3 ALIGNMENTS:*
 
 {{{
-bash-2.03$ python Python_CAP3_ContigExtractor_Uni_2007_03_19.py
+python Python_CAP3_ContigExtractor_Uni_2007_03_19.py
 What type of output do you want? (1/2): 2
 Enter the SOURCE file name: output.cap3.80.90
 Enter the DESTINATION directory with alignments: output.cap3.80.90.Align
@@ -45,7 +45,7 @@ cd ../
 *SNP DISCOVERY:*
 
 {{{
-python Python_CAP3_MM_Finder_Uni_2007_08_14c.py
+python Python_CAP3_MM_Finder_Uni_2008_01_26c.py 
 Enter the SOURCE file name: output.Align.txt
 Enter the DESTINATION file name: output.cap3.80.90.MM
 Enter the CONSENSUS_ID pattern: My_Assy_
