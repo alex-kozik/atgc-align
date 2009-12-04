@@ -1,0 +1,52 @@
+# cap3 output processing and analysis
+
+= CAP3 run =
+
+example project: http://cgpdb.ucdavis.edu/SNP_Discovery_CDS/
+
+*cap3 input.fasta -o 80 -p 90 > output.cap3.80.90 &*
+
+(overlap 80 nucleotides, identity - 90%)
+
+= CAP3 output processing =
+
+*GENERATION OF CONTIG COMPLEXITY INFO:*
+
+{{{
+bash-2.03$ python Python_CAP3_ContigExtractor_Uni_2007_03_19.py
+What type of output do you want? (1/2): 1
+Enter the SOURCE file name: output.cap3.80.90
+Enter the DESTINATION file name: output.cap3.80.90.Info
+Default contig file name prefix is Contig
+Enter the contig file name prefix:My_Assy_
+}}}
+
+*EXTRACTION OF CAP3 ALIGNMENTS:*
+
+{{{
+bash-2.03$ python Python_CAP3_ContigExtractor_Uni_2007_03_19.py
+What type of output do you want? (1/2): 2
+Enter the SOURCE file name: output.cap3.80.90
+Enter the DESTINATION directory with alignments: output.cap3.80.90.Align
+Default contig file extension is aln
+Enter the contig file extension :
+Default contig file name prefix is Contig
+Enter the contig file name prefix:My_Assy_
+}}}
+
+*CONCATENATION OF ALL ALIGNMENTS INTO ONE LARGE FILE:*
+
+{{{
+cd output.cap3.80.90.Align
+cat My_Assy_*.aln > ../output.cap3.80.90.Align.txt
+cd ../
+}}}
+
+*SNP DISCOVERY:*
+
+{{{
+python Python_CAP3_MM_Finder_Uni_2007_08_14c.py
+Enter the SOURCE file name: output.Align.txt
+Enter the DESTINATION file name: output.cap3.80.90.MM
+Enter the CONSENSUS_ID pattern: My_Assy_
+}}}
